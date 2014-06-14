@@ -26,12 +26,6 @@ function testHMAC(t, ianaName, cryptoName) {
 }
 
 
-test('Get Hashes', function (t) {
-    t.same(hashes.getHashes(),
-           ['md5', 'sha-1', 'sha-224', 'sha-256', 'sha-384', 'sha-512']);
-    t.end();
-});
-
 test('Hash MD5', function (t) {
     testHash(t, 'md5', 'md5');
 });

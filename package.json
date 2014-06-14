@@ -6,6 +6,12 @@
   "bugs": {
     "url": "https://github.com/legastero/iana-hashes/issues"
   },
+  "browser": {
+    "crypto": "crypto-browserify"
+  },
+  "dependencies": {
+    "crypto-browserify": ""
+  },
   "devDependencies": {
     "browserify": "4.x",
     "grunt": "0.4.x",

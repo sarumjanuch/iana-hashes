@@ -4,14 +4,24 @@ var test = require('tape');
 
 
 function testHash(t, ianaName, cryptoName) {
-    t.equal(crypto.createHash(cryptoName).update('test').digest('hex'),
-            hashes.createHash(ianaName).update('test').digest('hex'));
+    var avail = hashes.getHashes();
+    if (avail.indexOf(ianaName) >= 0) {
+        t.equal(crypto.createHash(cryptoName).update('test').digest('hex'),
+                hashes.createHash(ianaName).update('test').digest('hex'));
+    } else {
+        t.skip('The ' + ianaName + ' algorithm is not supported in this environment');
+    }
     t.end();
 }
 
 function testHMAC(t, ianaName, cryptoName) {
-    t.equal(crypto.createHmac(cryptoName, 'key').update('test').digest('hex'),
-            hashes.createHmac(ianaName, 'key').update('test').digest('hex'));
+    var avail = hashes.getHashes();
+    if (avail.indexOf(ianaName) >= 0) {
+        t.equal(crypto.createHmac(cryptoName, 'key').update('test').digest('hex'),
+                hashes.createHmac(ianaName, 'key').update('test').digest('hex'));
+    } else {
+        t.skip('The ' + ianaName + ' algorithm is not supported in this environment');
+    }
     t.end();
 }
 

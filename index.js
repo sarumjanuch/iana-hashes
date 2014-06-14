@@ -25,6 +25,7 @@ exports.getHashes = function () {
 };
 
 exports.createHash = function (algorithm) {
+    algorithm = algorithm.toLowerCase();
     if (mapping[algorithm]) {
         algorithm = mapping[algorithm];
     }
@@ -32,6 +33,7 @@ exports.createHash = function (algorithm) {
 };
 
 exports.createHmac = function (algorithm, key) {
+    algorithm = algorithm.toLowerCase();
     if (mapping[algorithm]) {
         algorithm = mapping[algorithm];
     }

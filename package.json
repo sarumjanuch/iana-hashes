@@ -1,7 +1,7 @@
 {
   "name": "iana-hashes",
   "description": "Use the IANA registered hash names with node crypto",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "Lance Stout <lance@andyet.net>",
   "bugs": {
     "url": "https://github.com/legastero/iana-hashes/issues"

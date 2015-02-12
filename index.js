@@ -1,4 +1,6 @@
-var crypto = require('crypto');
+var createHash = require('create-hash');
+var createHmac = require('create-hmac');
+var getHashes = require('./lib/get-hashes');
 
 var mapping = {
     md2: 'md2',
@@ -15,7 +17,7 @@ var names = Object.keys(mapping);
 
 exports.getHashes = function () {
     var result = [];
-    var available = crypto.getHashes();
+    var available = getHashes();
     for (var i = 0, len = names.length; i < len; i++) {
         if (available.indexOf(mapping[names[i]]) >= 0) {
             result.push(names[i]);
@@ -29,7 +31,7 @@ exports.createHash = function (algorithm) {
     if (mapping[algorithm]) {
         algorithm = mapping[algorithm];
     }
-    return crypto.createHash(algorithm);
+    return createHash(algorithm);
 };
 
 exports.createHmac = function (algorithm, key) {
@@ -37,5 +39,5 @@ exports.createHmac = function (algorithm, key) {
     if (mapping[algorithm]) {
         algorithm = mapping[algorithm];
     }
-    return crypto.createHmac(algorithm, key);
+    return createHmac(algorithm, key);
 };
